@@ -3928,7 +3928,7 @@ function TR_Enter_Trials_HandRoutineEnd(trials) {
         thisComponent.setAutoDraw(false);
       }
     }
-    if ((TR_Press_Hand.keys.length !== null)) {
+    if ((TR_Press_Hand.keys !== undefined)) {
         if (TR_Press_Hand.corr) {
             feedback = feedback_p;
         } else {
@@ -5387,7 +5387,7 @@ function TR_Enter_TrialsRoutineEnd(trials) {
         thisComponent.setAutoDraw(false);
       }
     }
-    if ((TR_Press.keys.length !== null)) {
+    if ((TR_Press.keys !== undefined)) {
         if (TR_Press.corr) {
             feedback = feedback_p;
         } else {
