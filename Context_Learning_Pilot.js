@@ -125,7 +125,6 @@ psychoJS.start({
     {'name': 'media/cross.png', 'path': '/media/cross.png'},
   ]
 });
-  });
 
 
 var frameDur;
