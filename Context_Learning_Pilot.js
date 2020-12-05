@@ -122,7 +122,7 @@ psychoJS.start({
     {'name': 'media/ddnb_r.png', 'path': './media/ddnb_r.png'},
     {'name': 'media/djnb_g.png', 'path': './media/djnb_g.png'},
     {'name': 'media/check.png', 'path': '/media/check.png'},
-    {'name': 'media/cross.png', 'path': '/media/cross.png'},
+    {'name': 'media/cross.png', 'path': '/media/cross.png'}
   ]
 });
 
