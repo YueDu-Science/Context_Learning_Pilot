@@ -2631,21 +2631,21 @@ function Creat_StimSeqRoutineBegin(trials) {
     if ((stim_type === "Hand")) {
         count = 0;
         while ((count < (num_trials_hand / 20))) {
-            shuffle(x8);
+            util.shuffle(x8);
             for (var i, _pj_c = 0, _pj_a = x8, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                 i = _pj_a[_pj_c];
                 seq_handx.append(x[i]);
                 seq_handy.append(y[i]);
                 seq_finger_hand.append(finger[i]);
             }
-            shuffle(x8);
+            util.shuffle(x8);
             for (var i, _pj_c = 0, _pj_a = x8, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                 i = _pj_a[_pj_c];
                 seq_handx.append(x[i]);
                 seq_handy.append(y[i]);
                 seq_finger_hand.append(finger[i]);
             }
-            shuffle(x4);
+            util.shuffle(x4);
             for (var i, _pj_c = 0, _pj_a = x4, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                 i = _pj_a[_pj_c];
                 seq_handx.append(x[i]);
@@ -2659,7 +2659,7 @@ function Creat_StimSeqRoutineBegin(trials) {
         if ((grp_b === 1)) {
             count = 0;
             while ((count < (num_trials_cr / 20))) {
-                shuffle(x8);
+                util.shuffle(x8);
                 for (var i, _pj_c = 0, _pj_a = x8, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                     i = _pj_a[_pj_c];
                     seq_stim.append(stim[i]);
@@ -2667,7 +2667,7 @@ function Creat_StimSeqRoutineBegin(trials) {
                     seq_image.append(image[i]);
                     seq_ctx.append(ctx_color[(i + ctx_ind)]);
                 }
-                shuffle(x8);
+                util.shuffle(x8);
                 for (var i, _pj_c = 0, _pj_a = x8, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                     i = _pj_a[_pj_c];
                     seq_stim.append(stim[i]);
@@ -2675,7 +2675,7 @@ function Creat_StimSeqRoutineBegin(trials) {
                     seq_image.append(image[i]);
                     seq_ctx.append(ctx_color[(i + ctx_ind)]);
                 }
-                shuffle(x4);
+                util.shuffle(x4);
                 for (var i, _pj_c = 0, _pj_a = x4, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                     i = _pj_a[_pj_c];
                     seq_stim.append(stim[i]);
@@ -2689,7 +2689,7 @@ function Creat_StimSeqRoutineBegin(trials) {
             if ((grp_r === 1)) {
                 count = 0;
                 while ((count < (num_trials_cr / 40))) {
-                    shuffle(x16);
+                    util.shuffle(x16);
                     for (var i, _pj_c = 0, _pj_a = x16, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                         i = _pj_a[_pj_c];
                         seq_stim.append(stim[i]);
@@ -2697,7 +2697,7 @@ function Creat_StimSeqRoutineBegin(trials) {
                         seq_image.append(image[i]);
                         seq_ctx.append(ctx_color[i]);
                     }
-                    shuffle(x16);
+                    util.shuffle(x16);
                     for (var i, _pj_c = 0, _pj_a = x16, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                         i = _pj_a[_pj_c];
                         seq_stim.append(stim[i]);
@@ -2705,7 +2705,7 @@ function Creat_StimSeqRoutineBegin(trials) {
                         seq_image.append(image[i]);
                         seq_ctx.append(ctx_color[i]);
                     }
-                    shuffle(x8_new);
+                    util.shuffle(x8_new);
                     for (var i, _pj_c = 0, _pj_a = x8_new, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                         i = _pj_a[_pj_c];
                         seq_stim.append(stim[i]);
@@ -2736,7 +2736,7 @@ function Creat_StimSeqRoutineBegin(trials) {
         if ((grp_b === 1)) {
             count = 0;
             while ((count < (num_trials / 8))) {
-                shuffle(x8);
+                util.shuffle(x8);
                 for (var i, _pj_c = 0, _pj_a = x8, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                     i = _pj_a[_pj_c];
                     seq_stim.append(stim[i]);
@@ -2750,7 +2750,7 @@ function Creat_StimSeqRoutineBegin(trials) {
             if ((grp_r === 1)) {
                 count = 0;
                 while ((count < (num_trials / 16))) {
-                    shuffle(x16);
+                    util.shuffle(x16);
                     for (var i, _pj_c = 0, _pj_a = x16, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                         i = _pj_a[_pj_c];
                         seq_stim.append(stim[i]);
@@ -2799,7 +2799,7 @@ function Creat_StimSeqRoutineBegin(trials) {
             if (((block_count + 1) < 5)) {
                 count = 0;
                 while ((count < (num_trials / 8))) {
-                    shuffle(x8);
+                    util.shuffle(x8);
                     for (var i, _pj_c = 0, _pj_a = x8, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                         i = _pj_a[_pj_c];
                         seq_stim.append(stim[i]);
@@ -2813,7 +2813,7 @@ function Creat_StimSeqRoutineBegin(trials) {
                 if (((block_count + 1) > 4)) {
                     count = 0;
                     while ((count < (num_trials / 16))) {
-                        shuffle(x16);
+                        util.shuffle(x16);
                         for (var i, _pj_c = 0, _pj_a = x16, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                             i = _pj_a[_pj_c];
                             seq_stim.append(stim[i]);
@@ -2829,7 +2829,7 @@ function Creat_StimSeqRoutineBegin(trials) {
             if (((0 < (block_count + 1)) && ((block_count + 1) < 3))) {
                 count = 0;
                 while ((count < (num_trials / 16))) {
-                    shuffle(x16);
+                    util.shuffle(x16);
                     for (var i, _pj_c = 0, _pj_a = x16, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                         i = _pj_a[_pj_c];
                         seq_stim.append(stim[i]);
@@ -2843,7 +2843,7 @@ function Creat_StimSeqRoutineBegin(trials) {
                 if (((block_count + 1) > 2)) {
                     count = 0;
                     while ((count < (num_trials / 8))) {
-                        shuffle(x8);
+                        util.shuffle(x8);
                         for (var i, _pj_c = 0, _pj_a = x8, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
                             i = _pj_a[_pj_c];
                             seq_stim.append(stim[i]);
