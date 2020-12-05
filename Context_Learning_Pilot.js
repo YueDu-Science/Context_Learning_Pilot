@@ -504,7 +504,7 @@ function experimentInit() {
     edges: circle_pol, size:[1.0, 1.0],
     ori: 0, pos: [0, 0],
     lineWidth: circle_wd, lineColor: new util.Color(circle_color),
-    fillColor: new util.Color(undefined),
+    fillColor: undefined,
     opacity: 1, depth: -1, interpolate: true,
   });
   
@@ -1010,7 +1010,7 @@ function experimentInit() {
     edges: circle_pol, size:[1.0, 1.0],
     ori: 0, pos: [0, 0],
     lineWidth: circle_wd, lineColor: new util.Color(circle_color),
-    fillColor: new util.Color(undefined),
+    fillColor: undefined,
     opacity: 1, depth: -2, interpolate: true,
   });
   
