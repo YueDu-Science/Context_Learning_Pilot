@@ -2620,6 +2620,10 @@ var seq_handy;
 var seq_finger_hand;
 var count;
 var ctx_ind;
+var seq_stim;
+var seq_finger;
+var seq_image;
+var seq_ctx;
 var Creat_StimSeqComponents;
 function Creat_StimSeqRoutineBegin(trials) {
   return function () {
