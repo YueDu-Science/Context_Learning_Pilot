@@ -3040,7 +3040,7 @@ function Load_Trial_HandRoutineEnd(trials) {
   };
 }
 
-
+var ctx_num;
 var Save_VariablesComponents;
 function Save_VariablesRoutineBegin(trials) {
   return function () {
