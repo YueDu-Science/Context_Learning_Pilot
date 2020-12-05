@@ -2955,7 +2955,7 @@ function Load_Trial_HandRoutineBegin(trials) {
     x_item = seq_handx[trial_count];
     finger_item = seq_finger_hand[trial_count];
     y_item = seq_handy[trial_count];
-    stim_start_time = ((random() * 1.3) + 0.3);
+    stim_start_time = ((Math.random() * 1.3) + 0.3);
     prep_time = ((time_limit - 0.2) - stim_start_time);
     position_item = [x_item, y_item];
     if ((x_item === (- 0.038))) {
@@ -4489,7 +4489,7 @@ function Load_TrialsRoutineBegin(trials) {
     image_item = seq_image[trial_count];
     ctx_item = seq_ctx[trial_count];
     if ((block_type === "TR")) {
-        stim_start_time = ((random() * 1.3) + 0.3);
+        stim_start_time = ((Math.random() * 1.3) + 0.3);
         prep_time = ((time_limit - 0.2) - stim_start_time);
         ctx_start_time = 0;
     } else {
