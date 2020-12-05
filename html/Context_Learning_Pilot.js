@@ -262,7 +262,6 @@ var TR_Stim_Image;
 var TR_Press;
 var globalClock;
 var routineTimer;
-
 function experimentInit() {
   // Initialize components for Routine "Import_Stim_File"
   Import_Stim_FileClock = new util.Clock();
@@ -2148,7 +2147,6 @@ var finger_ctx1;
 var finger_ctx2;
 var finger_ctx12;
 var Init_StimComponents;
-var rnd;
 function Init_StimRoutineBegin(trials) {
   return function () {
     //------Prepare to start Routine 'Init_Stim'-------
