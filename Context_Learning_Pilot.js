@@ -10,6 +10,33 @@ import * as util from './lib/util-2020.1.js';
 import * as visual from './lib/visual-2020.1.js';
 import * as sound from './lib/sound-2020.1.js';
 
+Array.prototype.append = [].push
+
+shuffle = util.shuffle
+
+function permute(permutation) {
+  var length = permutation.length,
+      result = [permutation.slice()],
+      c = new Array(length).fill(0),
+      i = 1, k, p;
+
+  while (i < length) {
+    if (c[i] < i) {
+      k = i % 2 && c[i];
+      p = permutation[i];
+      permutation[i] = permutation[k];
+      permutation[k] = p;
+      ++c[i];
+      i = 1;
+      result.push(permutation.slice());
+    } else {
+      c[i] = 0;
+      ++i;
+    }
+  }
+  return result;
+}
+
 // init psychoJS:
 const psychoJS = new PsychoJS({
   debug: true
@@ -232,18 +259,7 @@ function experimentInit() {
   Import_Stim_FileClock = new util.Clock();
   // Initialize components for Routine "Init_Stim"
   Init_StimClock = new util.Clock();
-  
-          // add-on: list(s: string): string[]
-          function list(s) {
-              // if s is a string, we return a list of its characters
-              if (typeof s === 'string')
-                  return s.split('');
-              else
-                  // otherwise we return s:
-                  return s;
-          }
-          
-          block_type = [];
+  block_type = [];
   participant = Number.parseInt(expInfo["participant"]);
   day = Number.parseInt(expInfo["day"]);
   circle_frame_color = [1, 1, 1];
@@ -256,14 +272,14 @@ function experimentInit() {
   time_limit = 1.8;
   stim_key = [0, 1, 2, 3];
   x4 = stim_key;
-  x8 = (x4 + x4);
+  x8 = x4.concat(x4);
   x8_new = [0, 1, 2, 3, 4, 5, 6, 7];
-  x16 = (x8_new + x8_new);
+  x16 = x8_new.concat(x8_new);
   num_pos = 4;
   num_symb = 4;
   num_ctx = 2;
   ctx_b = 1;
-  stim_key_perm = list(permutations(stim_key));
+  stim_key_perm = permute(stim_key);
   n_map = stim_key_perm.length;
   rt_block_hand = 1;
   tr_block_hand = 4;
@@ -316,9 +332,9 @@ function experimentInit() {
   stim = [];
   ctx_color = [];
   image = [];
-  grp_list = list(permutations([1, 2, 3, 4]));
+  grp_list = permute([1, 2, 3, 4]);
   grp_list_num = grp_list.length;
-  if ((participant === null)) {
+  if ((participant == null)) {
       tmp_grp_rnd = 0;
   } else {
       tmp_grp_rnd = ((participant * 2) % grp_list_num);
@@ -1123,7 +1139,7 @@ function Instr_Exp_BoolLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   Instr_Exp_Bool = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $instr_exp, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: instr_exp, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'Instr_Exp_Bool'
@@ -1157,7 +1173,7 @@ function RT_Bool_HandLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   RT_Bool_Hand = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $hand_rt, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: hand_rt, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'RT_Bool_Hand'
@@ -1191,7 +1207,7 @@ function RT_Iter_HandLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   RT_Iter_Hand = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $num_trials_hand, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: num_trials_hand, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'RT_Iter_Hand'
@@ -1244,7 +1260,7 @@ function TR_Bool_HandLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Bool_Hand = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $hand_tr, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: hand_tr, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Bool_Hand'
@@ -1275,7 +1291,7 @@ function TR_Block_HandLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Block_Hand = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $tr_block_hand, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: tr_block_hand, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Block_Hand'
@@ -1312,7 +1328,7 @@ function TR_Iter_HandLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Iter_Hand = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $num_trials_hand, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: num_trials_hand, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Iter_Hand'
@@ -1356,7 +1372,7 @@ function TR_Feedback_Bool_HandLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Feedback_Bool_Hand = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $tr_feedback, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: tr_feedback, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Feedback_Bool_Hand'
@@ -1390,7 +1406,7 @@ function TR_Penalty_Bool_HandLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Penalty_Bool_Hand = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $tr_penalty, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: tr_penalty, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Penalty_Bool_Hand'
@@ -1445,7 +1461,7 @@ function CR_Old_BoolLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   CR_Old_Bool = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $cr_old, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: cr_old, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'CR_Old_Bool'
@@ -1477,7 +1493,7 @@ function CR_Old_Grp_B_BoolLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   CR_Old_Grp_B_Bool = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $grp_b, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: grp_b, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'CR_Old_Grp_B_Bool'
@@ -1521,7 +1537,7 @@ function CR_Old_Iter_Ctx1LoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   CR_Old_Iter_Ctx1 = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $num_trials_cr, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: num_trials_cr, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'CR_Old_Iter_Ctx1'
@@ -1570,7 +1586,7 @@ function CR_Old_Iter_Ctx2LoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   CR_Old_Iter_Ctx2 = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $num_trials_cr, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: num_trials_cr, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'CR_Old_Iter_Ctx2'
@@ -1626,7 +1642,7 @@ function CR_Old_Grp_R_BoolLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   CR_Old_Grp_R_Bool = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $grp_r, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: grp_r, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'CR_Old_Grp_R_Bool'
@@ -1660,7 +1676,7 @@ function CR_Old_Iter_Ctx12LoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   CR_Old_Iter_Ctx12 = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $num_trials_cr, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: num_trials_cr, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'CR_Old_Iter_Ctx12'
@@ -1723,7 +1739,7 @@ function RT_BoolLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   RT_Bool = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $rt, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: rt, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'RT_Bool'
@@ -1754,7 +1770,7 @@ function RT_BlockLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   RT_Block = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $rt_block, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: rt_block, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'RT_Block'
@@ -1788,7 +1804,7 @@ function RT_IterLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   RT_Iter = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $num_trials, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: num_trials, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'RT_Iter'
@@ -1848,7 +1864,7 @@ function TR_Old_BoolLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Old_Bool = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $tr_old, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: tr_old, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Old_Bool'
@@ -1879,7 +1895,7 @@ function TR_Old_BlockLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Old_Block = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $tr_block, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: tr_block, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Old_Block'
@@ -1913,7 +1929,7 @@ function TR_IterLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Iter = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $num_trials, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: num_trials, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Iter'
@@ -1957,7 +1973,7 @@ function TR_Feedback_BoolLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Feedback_Bool = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $tr_feedback, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: tr_feedback, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Feedback_Bool'
@@ -1991,7 +2007,7 @@ function TR_Penalty_BoolLoopBegin(thisScheduler) {
   // set up handler to look after randomisation of conditions etc
   TR_Penalty_Bool = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: $tr_penalty, method: TrialHandler.Method.SEQUENTIAL,
+    nReps: tr_penalty, method: TrialHandler.Method.SEQUENTIAL,
     extraInfo: expInfo, originPath: undefined,
     trialList: undefined,
     seed: undefined, name: 'TR_Penalty_Bool'
@@ -2144,7 +2160,7 @@ function Init_StimRoutineBegin(trials) {
         ctx_color.append(StimList[i]["Ctx_color"]);
         image.append(StimList[i]["imStim"]);
     }
-    if ((participant === null)) {
+    if ((participant == null)) {
         stim_key_map_rnd = 0;
     } else {
         stim_key_map_rnd = ((participant * 2) % n_map);
@@ -2177,8 +2193,8 @@ function Init_StimRoutineBegin(trials) {
         finger_ctx1.append(finger[stim_key_map_ctx1[i]]);
         finger_ctx2.append(finger[stim_key_map_ctx2[i]]);
     }
-    thisExp.addData("stim_key_map_ctx1", stim_key_map_ctx1);
-    thisExp.addData("stim_key_map_ctx2", stim_key_map_ctx2);
+    psychoJS.experiment.addData("stim_key_map_ctx1", stim_key_map_ctx1);
+    psychoJS.experiment.addData("stim_key_map_ctx2", stim_key_map_ctx2);
     finger_ctx12 = (finger_ctx1 + finger_ctx2);
     
     // keep track of which components have finished
@@ -3016,11 +3032,11 @@ function Save_VariablesRoutineBegin(trials) {
     frameN = -1;
     // update component parameters for each repeat
     if ((stim_type === "Hand")) {
-        thisExp.addData("Symbol", stim_hand);
-        thisExp.addData("ctx", 0);
+        psychoJS.experiment.addData("Symbol", stim_hand);
+        psychoJS.experiment.addData("ctx", 0);
     } else {
-        thisExp.addData("Symbol", stim_item);
-        thisExp.addData("Shape", image_item);
+        psychoJS.experiment.addData("Symbol", stim_item);
+        psychoJS.experiment.addData("Shape", image_item);
         if ((ctx_item === ctx_color[0])) {
             ctx_num = 1;
         } else {
@@ -3028,19 +3044,19 @@ function Save_VariablesRoutineBegin(trials) {
                 ctx_num = 2;
             }
         }
-        thisExp.addData("ctx", ctx_num);
+        psychoJS.experiment.addData("ctx", ctx_num);
     }
-    thisExp.addData("Stim_Type", stim_type);
-    thisExp.addData("Finger", finger_item);
-    thisExp.addData("Block_Type", block_type);
-    thisExp.addData("Remap", remap);
-    thisExp.addData("Repeat_Count", repeat_count);
-    thisExp.addData("Trial_Count", trial_count);
-    thisExp.addData("Grp_B", grp_b);
-    thisExp.addData("Brp_R", grp_r);
-    thisExp.addData("Block_Num", block_count);
-    thisExp.addData("Set_Prep_Time", prep_time);
-    thisExp.addData("Day", day);
+    psychoJS.experiment.addData("Stim_Type", stim_type);
+    psychoJS.experiment.addData("Finger", finger_item);
+    psychoJS.experiment.addData("Block_Type", block_type);
+    psychoJS.experiment.addData("Remap", remap);
+    psychoJS.experiment.addData("Repeat_Count", repeat_count);
+    psychoJS.experiment.addData("Trial_Count", trial_count);
+    psychoJS.experiment.addData("Grp_B", grp_b);
+    psychoJS.experiment.addData("Brp_R", grp_r);
+    psychoJS.experiment.addData("Block_Num", block_count);
+    psychoJS.experiment.addData("Set_Prep_Time", prep_time);
+    psychoJS.experiment.addData("Day", day);
     
     // keep track of which components have finished
     Save_VariablesComponents = [];
@@ -3601,7 +3617,7 @@ function Instr_Block_NumRoutineBegin(trials) {
     Instr_Block_NumClock.reset(); // clock
     frameN = -1;
     // update component parameters for each repeat
-    Instr_Block_Num_Text.setText((('Block ' + str(block_count)) + '\nPress any key to start'));
+    Instr_Block_Num_Text.setText((('Block ' + block_count) + '\nPress any key to start'));
     Instr_Block_Num_Press.keys = undefined;
     Instr_Block_Num_Press.rt = undefined;
     _Instr_Block_Num_Press_allKeys = [];
@@ -3896,7 +3912,7 @@ function TR_Enter_Trials_HandRoutineEnd(trials) {
         thisComponent.setAutoDraw(false);
       }
     }
-    if ((TR_Press_Hand.keys.length !== 0)) {
+    if ((TR_Press_Hand.keys.length !== null)) {
         if (TR_Press_Hand.corr) {
             feedback = feedback_p;
         } else {
@@ -4241,7 +4257,7 @@ function TR_Hand_Accuracy_BoolRoutineBegin(trials) {
     if ((block_count > 1)) {
         tr_timing_perc = (tr_timing_good / num_trials_hand);
         if ((tr_timing_perc > 0.7)) {
-            TR_Block_Hand.finished = true;
+            trials.finished = true;
         }
     }
     tr_timing_good = 0;
@@ -4734,18 +4750,10 @@ function Criterion_DetRoutineBegin(trials) {
         }
         return true;
     }
-    if (((grp_b === 1) && (ctx_b === 1))) {
-        CR_Old_Iter_Ctx1.finished = new CR_Crit(sum_corr);
-    } else {
-        if (((grp_b === 1) && (ctx_b === 2))) {
-            CR_Old_Iter_Ctx2.finished = new CR_Crit(sum_corr);
-        } else {
-            if ((grp_r === 1)) {
-                CR_Old_Iter_Ctx12.finished = new CR_Crit(sum_corr);
-            }
-        }
+    if (CR_crit(sum_corr)){
+      trials.finished = true;
     }
-    
+
     // keep track of which components have finished
     Criterion_DetComponents = [];
     
@@ -5363,7 +5371,7 @@ function TR_Enter_TrialsRoutineEnd(trials) {
         thisComponent.setAutoDraw(false);
       }
     }
-    if ((TR_Press.keys.length !== 0)) {
+    if ((TR_Press.keys.length !== null)) {
         if (TR_Press.corr) {
             feedback = feedback_p;
         } else {
