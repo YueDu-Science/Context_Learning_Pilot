@@ -2144,12 +2144,14 @@ var feedback_p;
 var feedback_n;
 var stim_key_map_rnd;
 var stim_key_map_ctx1;
+var stim_key_map_ctx2;
 var finger_ctx1;
 var finger_ctx2;
 var finger_ctx12;
 var Init_StimComponents;
 var rnd;
 var candidate_map;
+var myList;
 function Init_StimRoutineBegin(trials) {
   return function () {
     //------Prepare to start Routine 'Init_Stim'-------
