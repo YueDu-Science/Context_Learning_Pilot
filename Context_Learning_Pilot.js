@@ -2188,7 +2188,7 @@ function Init_StimRoutineBegin(trials) {
         }
         return result;
     }
-    for (var i = 100, _pj_a = 100; (i > _pj_a); i += (-1)) {
+    for (var i = 100, _pj_a = 0; (i > _pj_a); i += (-1)) {
         rnd = ((participant * i) % n_map);
         candidate_map = stim_key_perm[rnd];
         myList = [];
