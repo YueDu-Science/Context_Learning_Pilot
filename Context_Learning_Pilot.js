@@ -50,10 +50,11 @@ psychoJS.openWindow({
 
 // store info about the experiment session:
 let expName = 'Context_Learning_Pilot';  // from the Builder filename that created this script
-let expInfo = {'participant': '', 'day': ''};
+let expInfo = {'participant': '', 'session': ''};
 
 // schedule the experiment:
 psychoJS.schedule(psychoJS.gui.DlgFromDict({
+  text: "Welcome. Make sure you type in your Participation ID and Session. Press 'Ok' when you are ready to begin.",
   dictionary: expInfo,
   title: expName
 }));
@@ -142,7 +143,7 @@ var Import_Stim_FileClock;
 var Init_StimClock;
 var block_type;
 var participant;
-var day;
+var session;
 var circle_frame_color;
 var circle_frame_opacity;
 var circle_color;
@@ -270,7 +271,7 @@ function experimentInit() {
   Init_StimClock = new util.Clock();
   block_type = [];
   participant = Number.parseInt(expInfo["participant"]);
-  day = Number.parseInt(expInfo["day"]);
+  day = Number.parseInt(expInfo["session"]);
   circle_frame_color = [1, 1, 1];
   circle_frame_opacity = 1;
   circle_color = [1, 1, 1];
