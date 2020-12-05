@@ -4770,7 +4770,7 @@ function Criterion_DetRoutineBegin(trials) {
         }
         return true;
     }
-    if (CR_crit(sum_corr)){
+    if (CR_Crit(sum_corr)){
       trials.finished = true;
     }
 
