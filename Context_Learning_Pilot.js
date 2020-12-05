@@ -199,7 +199,7 @@ var Instr_ExpClock;
 var Instr_Exp_Text;
 var Instr_Exp_Key;
 var Instr_RT_HandClock;
-var Instr_RT_Hand_Rext;
+var Instr_RT_Hand_Text;
 var Instr_RT_Hand_Key;
 var Creat_StimSeqClock;
 var Load_Trial_HandClock;
@@ -368,6 +368,7 @@ function experimentInit() {
   Instr_Exp_Text = new visual.TextStim({
     win: psychoJS.window,
     name: 'Instr_Exp_Text',
+    alignHoriz: 'center',
     text: 'Thank you for willing to participate in our study where you need to:\n\nUse four fingers (index, middle, ring, little).\n\nPress four keys (h, u, i, l).\n\nThe entire study will take about 1 hour, there will be short recurring rest intervals.\n\nOnce you start, you cannot turn off the web browser until the completion.\n\n\nOnce you are ready to proceed, press the space key.\n\n\n\n\n\n',
     font: 'Arial',
     units: undefined, 
@@ -380,9 +381,10 @@ function experimentInit() {
   
   // Initialize components for Routine "Instr_RT_Hand"
   Instr_RT_HandClock = new util.Clock();
-  Instr_RT_Hand_Rext = new visual.TextStim({
+  Instr_RT_Hand_Text = new visual.TextStim({
     win: psychoJS.window,
-    name: 'Instr_RT_Hand_Rext',
+    name: 'Instr_RT_Hand_Text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -466,6 +468,7 @@ function experimentInit() {
   instr_HAND_TR_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'instr_HAND_TR_text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -483,6 +486,7 @@ function experimentInit() {
   Instr_Block_Num_Text = new visual.TextStim({
     win: psychoJS.window,
     name: 'Instr_Block_Num_Text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -551,6 +555,7 @@ function experimentInit() {
   TR_Feedback_Text = new visual.TextStim({
     win: psychoJS.window,
     name: 'TR_Feedback_Text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -582,6 +587,7 @@ function experimentInit() {
   TR_Penalty_Text = new visual.TextStim({
     win: psychoJS.window,
     name: 'TR_Penalty_Text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -610,6 +616,7 @@ function experimentInit() {
   Instr_CR_Old_Text_Ctx1 = new visual.TextStim({
     win: psychoJS.window,
     name: 'Instr_CR_Old_Text_Ctx1',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -695,6 +702,7 @@ function experimentInit() {
   Instr_CR_Text_Ctx2 = new visual.TextStim({
     win: psychoJS.window,
     name: 'Instr_CR_Text_Ctx2',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -780,6 +788,7 @@ function experimentInit() {
   Instr_CR_Old_Text_Ctx1 = new visual.TextStim({
     win: psychoJS.window,
     name: 'Instr_CR_Old_Text_Ctx1',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -865,6 +874,7 @@ function experimentInit() {
   Instr_RT_Text = new visual.TextStim({
     win: psychoJS.window,
     name: 'Instr_RT_Text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -882,6 +892,7 @@ function experimentInit() {
   Instr_Block_Num_Text = new visual.TextStim({
     win: psychoJS.window,
     name: 'Instr_Block_Num_Text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -963,6 +974,7 @@ function experimentInit() {
   Instr_TR_Old_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'Instr_TR_Old_text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -980,6 +992,7 @@ function experimentInit() {
   Instr_Block_Num_Text = new visual.TextStim({
     win: psychoJS.window,
     name: 'Instr_Block_Num_Text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -1048,6 +1061,7 @@ function experimentInit() {
   TR_Feedback_Text = new visual.TextStim({
     win: psychoJS.window,
     name: 'TR_Feedback_Text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -1079,6 +1093,7 @@ function experimentInit() {
   TR_Penalty_Text = new visual.TextStim({
     win: psychoJS.window,
     name: 'TR_Penalty_Text',
+    alignHoriz: 'center',
     text: 'default text',
     font: 'Arial',
     units: undefined, 
@@ -2501,13 +2516,13 @@ function Instr_RT_HandRoutineBegin(trials) {
     block_count = 0;
     ctx_item = circle_frame_color;
     
-    Instr_RT_Hand_Rext.setText(instr_rt_text_hand);
+    Instr_RT_Hand_Text.setText(instr_rt_text_hand);
     Instr_RT_Hand_Key.keys = undefined;
     Instr_RT_Hand_Key.rt = undefined;
     _Instr_RT_Hand_Key_allKeys = [];
     // keep track of which components have finished
     Instr_RT_HandComponents = [];
-    Instr_RT_HandComponents.push(Instr_RT_Hand_Rext);
+    Instr_RT_HandComponents.push(Instr_RT_Hand_Text);
     Instr_RT_HandComponents.push(Instr_RT_Hand_Key);
     
     for (const thisComponent of Instr_RT_HandComponents)
@@ -2528,13 +2543,13 @@ function Instr_RT_HandRoutineEachFrame(trials) {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     
-    // *Instr_RT_Hand_Rext* updates
-    if (t >= 0.0 && Instr_RT_Hand_Rext.status === PsychoJS.Status.NOT_STARTED) {
+    // *Instr_RT_Hand_Text* updates
+    if (t >= 0.0 && Instr_RT_Hand_Text.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      Instr_RT_Hand_Rext.tStart = t;  // (not accounting for frame time here)
-      Instr_RT_Hand_Rext.frameNStart = frameN;  // exact frame index
+      Instr_RT_Hand_Text.tStart = t;  // (not accounting for frame time here)
+      Instr_RT_Hand_Text.frameNStart = frameN;  // exact frame index
       
-      Instr_RT_Hand_Rext.setAutoDraw(true);
+      Instr_RT_Hand_Text.setAutoDraw(true);
     }
 
     
@@ -3960,15 +3975,11 @@ function TR_Enter_Trials_HandRoutineEnd(trials) {
     tr_feedback_text_color = [1, 1, 1];
     if ((tr_penalty === 1)) {
         if ((tr_press_toolate === 1)) {
-            tr_penalty_text = `no response or you responded way too late.
-    2 second penalty.
-    After 2 second, press any key to continue.`
+            tr_penalty_text = `no response or you responded way too late. \n 2 second penalty. \n After 2 second, press any key to continue.`
     ;
         } else {
             if ((tr_press_tooearly === 1)) {
-                tr_penalty_text = `You responded way too early,
-    2 second penalty.
-    After 2 second, press any key to continue.`
+                tr_penalty_text = `You responded way too early. \n 2 second penalty. \n After 2 second, press any key to continue.`
     ;
             }
         }
@@ -5419,15 +5430,11 @@ function TR_Enter_TrialsRoutineEnd(trials) {
     tr_feedback_text_color = [1, 1, 1];
     if ((tr_penalty === 1)) {
         if ((tr_press_toolate === 1)) {
-            tr_penalty_text = `no response or you responded way too late.
-    2 second penalty.
-    After 2 second, press any key to continue.`
+            tr_penalty_text = `no response or you responded way too late. \n 2 second penalty. \n After 2 second, press any key to continue.`
     ;
         } else {
             if ((tr_press_tooearly === 1)) {
-                tr_penalty_text = `You responded way too early,
-    2 second penalty.
-    After 2 second, press any key to continue.`
+                tr_penalty_text = `You responded way too early. \n 2 second penalty. \n After 2 second, press any key to continue.`
     ;
             }
         }
