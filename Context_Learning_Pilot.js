@@ -12,8 +12,6 @@ import * as sound from './lib/sound-2020.1.js';
 
 Array.prototype.append = [].push
 
-shuffle = util.shuffle
-
 function permute(permutation) {
   var length = permutation.length,
       result = [permutation.slice()],
