@@ -3918,6 +3918,8 @@ function TR_Enter_Trials_HandRoutineEachFrame(trials) {
 
 var tr_feedback_text_color;
 var tr_penalty_text;
+var tr_feedback_text;
+
 function TR_Enter_Trials_HandRoutineEnd(trials) {
   return function () {
     //------Ending Routine 'TR_Enter_Trials_Hand'-------
