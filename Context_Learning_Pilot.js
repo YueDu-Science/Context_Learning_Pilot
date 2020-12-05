@@ -168,6 +168,7 @@ var Instr_RT_Hand_Rext;
 var Instr_RT_Hand_Key;
 var Creat_StimSeqClock;
 var Load_Trial_HandClock;
+var Save_VariablesClock;
 var RT_Enter_Trial_HandClock;
 var RT_Circle_Frame_Hand;
 var RT_Press_Hand;
@@ -371,6 +372,8 @@ function experimentInit() {
   Creat_StimSeqClock = new util.Clock();
   // Initialize components for Routine "Load_Trial_Hand"
   Load_Trial_HandClock = new util.Clock();
+  // Initialize components for Routine "Save_Variables"
+  Save_VariablesClock = new util.Clock();
   // Initialize components for Routine "RT_Enter_Trial_Hand"
   RT_Enter_Trial_HandClock = new util.Clock();
   RT_Circle_Frame_Hand = new visual.Polygon ({
@@ -467,6 +470,8 @@ function experimentInit() {
   
   // Initialize components for Routine "Load_Trial_Hand"
   Load_Trial_HandClock = new util.Clock();
+  // Initialize components for Routine "Save_Variables"
+  Save_VariablesClock = new util.Clock();
   // Initialize components for Routine "TR_Enter_Trials_Hand"
   TR_Enter_Trials_HandClock = new util.Clock();
   TR_Circle_Hand = new visual.Polygon ({
@@ -594,6 +599,8 @@ function experimentInit() {
   Creat_StimSeqClock = new util.Clock();
   // Initialize components for Routine "Load_Trials"
   Load_TrialsClock = new util.Clock();
+  // Initialize components for Routine "Save_Variables"
+  Save_VariablesClock = new util.Clock();
   // Initialize components for Routine "RT_Enter_Trial"
   RT_Enter_TrialClock = new util.Clock();
   RT_Circle_Fame = new visual.Polygon ({
@@ -677,6 +684,8 @@ function experimentInit() {
   Creat_StimSeqClock = new util.Clock();
   // Initialize components for Routine "Load_Trials"
   Load_TrialsClock = new util.Clock();
+  // Initialize components for Routine "Save_Variables"
+  Save_VariablesClock = new util.Clock();
   // Initialize components for Routine "RT_Enter_Trial"
   RT_Enter_TrialClock = new util.Clock();
   RT_Circle_Fame = new visual.Polygon ({
@@ -760,6 +769,8 @@ function experimentInit() {
   Creat_StimSeqClock = new util.Clock();
   // Initialize components for Routine "Load_Trials"
   Load_TrialsClock = new util.Clock();
+  // Initialize components for Routine "Save_Variables"
+  Save_VariablesClock = new util.Clock();
   // Initialize components for Routine "RT_Enter_Trial"
   RT_Enter_TrialClock = new util.Clock();
   RT_Circle_Fame = new visual.Polygon ({
@@ -858,6 +869,8 @@ function experimentInit() {
   
   // Initialize components for Routine "Load_Trials"
   Load_TrialsClock = new util.Clock();
+  // Initialize components for Routine "Save_Variables"
+  Save_VariablesClock = new util.Clock();
   // Initialize components for Routine "RT_Enter_Trial"
   RT_Enter_TrialClock = new util.Clock();
   RT_Circle_Fame = new visual.Polygon ({
@@ -954,6 +967,8 @@ function experimentInit() {
   
   // Initialize components for Routine "Load_Trials"
   Load_TrialsClock = new util.Clock();
+  // Initialize components for Routine "Save_Variables"
+  Save_VariablesClock = new util.Clock();
   // Initialize components for Routine "TR_Enter_Trials"
   TR_Enter_TrialsClock = new util.Clock();
   TR_Circle_Frame = new visual.Polygon ({
@@ -1191,6 +1206,9 @@ function RT_Iter_HandLoopBegin(thisScheduler) {
     thisScheduler.add(Load_Trial_HandRoutineBegin(snapshot));
     thisScheduler.add(Load_Trial_HandRoutineEachFrame(snapshot));
     thisScheduler.add(Load_Trial_HandRoutineEnd(snapshot));
+    thisScheduler.add(Save_VariablesRoutineBegin(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEachFrame(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEnd(snapshot));
     thisScheduler.add(RT_Enter_Trial_HandRoutineBegin(snapshot));
     thisScheduler.add(RT_Enter_Trial_HandRoutineEachFrame(snapshot));
     thisScheduler.add(RT_Enter_Trial_HandRoutineEnd(snapshot));
@@ -1309,6 +1327,9 @@ function TR_Iter_HandLoopBegin(thisScheduler) {
     thisScheduler.add(Load_Trial_HandRoutineBegin(snapshot));
     thisScheduler.add(Load_Trial_HandRoutineEachFrame(snapshot));
     thisScheduler.add(Load_Trial_HandRoutineEnd(snapshot));
+    thisScheduler.add(Save_VariablesRoutineBegin(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEachFrame(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEnd(snapshot));
     thisScheduler.add(TR_Enter_Trials_HandRoutineBegin(snapshot));
     thisScheduler.add(TR_Enter_Trials_HandRoutineEachFrame(snapshot));
     thisScheduler.add(TR_Enter_Trials_HandRoutineEnd(snapshot));
@@ -1515,6 +1536,9 @@ function CR_Old_Iter_Ctx1LoopBegin(thisScheduler) {
     thisScheduler.add(Load_TrialsRoutineBegin(snapshot));
     thisScheduler.add(Load_TrialsRoutineEachFrame(snapshot));
     thisScheduler.add(Load_TrialsRoutineEnd(snapshot));
+    thisScheduler.add(Save_VariablesRoutineBegin(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEachFrame(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEnd(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineBegin(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineEachFrame(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineEnd(snapshot));
@@ -1561,6 +1585,9 @@ function CR_Old_Iter_Ctx2LoopBegin(thisScheduler) {
     thisScheduler.add(Load_TrialsRoutineBegin(snapshot));
     thisScheduler.add(Load_TrialsRoutineEachFrame(snapshot));
     thisScheduler.add(Load_TrialsRoutineEnd(snapshot));
+    thisScheduler.add(Save_VariablesRoutineBegin(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEachFrame(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEnd(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineBegin(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineEachFrame(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineEnd(snapshot));
@@ -1648,6 +1675,9 @@ function CR_Old_Iter_Ctx12LoopBegin(thisScheduler) {
     thisScheduler.add(Load_TrialsRoutineBegin(snapshot));
     thisScheduler.add(Load_TrialsRoutineEachFrame(snapshot));
     thisScheduler.add(Load_TrialsRoutineEnd(snapshot));
+    thisScheduler.add(Save_VariablesRoutineBegin(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEachFrame(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEnd(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineBegin(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineEachFrame(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineEnd(snapshot));
@@ -1773,6 +1803,9 @@ function RT_IterLoopBegin(thisScheduler) {
     thisScheduler.add(Load_TrialsRoutineBegin(snapshot));
     thisScheduler.add(Load_TrialsRoutineEachFrame(snapshot));
     thisScheduler.add(Load_TrialsRoutineEnd(snapshot));
+    thisScheduler.add(Save_VariablesRoutineBegin(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEachFrame(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEnd(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineBegin(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineEachFrame(snapshot));
     thisScheduler.add(RT_Enter_TrialRoutineEnd(snapshot));
@@ -1895,6 +1928,9 @@ function TR_IterLoopBegin(thisScheduler) {
     thisScheduler.add(Load_TrialsRoutineBegin(snapshot));
     thisScheduler.add(Load_TrialsRoutineEachFrame(snapshot));
     thisScheduler.add(Load_TrialsRoutineEnd(snapshot));
+    thisScheduler.add(Save_VariablesRoutineBegin(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEachFrame(snapshot));
+    thisScheduler.add(Save_VariablesRoutineEnd(snapshot));
     thisScheduler.add(TR_Enter_TrialsRoutineBegin(snapshot));
     thisScheduler.add(TR_Enter_TrialsRoutineEachFrame(snapshot));
     thisScheduler.add(TR_Enter_TrialsRoutineEnd(snapshot));
@@ -2805,7 +2841,6 @@ function Creat_StimSeqRoutineBegin(trials) {
             }
         }
     }
-    console.log(seq_stim);
     
     // keep track of which components have finished
     Creat_StimSeqComponents = [];
@@ -2908,17 +2943,6 @@ function Load_Trial_HandRoutineBegin(trials) {
             }
         }
     }
-    thisExp.addData("Symbol", stim_hand);
-    thisExp.addData("Stim_Type", stim_type);
-    thisExp.addData("Finger", finger_item);
-    thisExp.addData("Block_Type", block_type);
-    thisExp.addData("Remap", remap);
-    thisExp.addData("Trial_Count", trial_count);
-    thisExp.addData("Set_Prep_Time", prep_time);
-    thisExp.addData("Block_Num", block_count);
-    thisExp.addData("Grp_B", grp_b);
-    thisExp.addData("Grp_R", grp_r);
-    thisExp.addData("Day", day);
     
     // keep track of which components have finished
     Load_Trial_HandComponents = [];
@@ -2976,6 +3000,104 @@ function Load_Trial_HandRoutineEnd(trials) {
       }
     }
     // the Routine "Load_Trial_Hand" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    return Scheduler.Event.NEXT;
+  };
+}
+
+
+var Save_VariablesComponents;
+function Save_VariablesRoutineBegin(trials) {
+  return function () {
+    //------Prepare to start Routine 'Save_Variables'-------
+    t = 0;
+    Save_VariablesClock.reset(); // clock
+    frameN = -1;
+    // update component parameters for each repeat
+    if ((stim_type === "Hand")) {
+        thisExp.addData("Symbol", stim_hand);
+        thisExp.addData("ctx", 0);
+    } else {
+        thisExp.addData("Symbol", stim_item);
+        thisExp.addData("Shape", image_item);
+        if ((ctx_item === ctx_color[0])) {
+            ctx_num = 1;
+        } else {
+            if ((ctx_item === ctx_color[(0 + num_symb)])) {
+                ctx_num = 2;
+            }
+        }
+        thisExp.addData("ctx", ctx_num);
+    }
+    thisExp.addData("Stim_Type", stim_type);
+    thisExp.addData("Finger", finger_item);
+    thisExp.addData("Block_Type", block_type);
+    thisExp.addData("Remap", remap);
+    thisExp.addData("Repeat_Count", repeat_count);
+    thisExp.addData("Trial_Count", trial_count);
+    thisExp.addData("Grp_B", grp_b);
+    thisExp.addData("Brp_R", grp_r);
+    thisExp.addData("Block_Num", block_count);
+    thisExp.addData("Set_Prep_Time", prep_time);
+    thisExp.addData("Day", day);
+    
+    // keep track of which components have finished
+    Save_VariablesComponents = [];
+    
+    for (const thisComponent of Save_VariablesComponents)
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+    
+    return Scheduler.Event.NEXT;
+  };
+}
+
+
+function Save_VariablesRoutineEachFrame(trials) {
+  return function () {
+    //------Loop for each frame of Routine 'Save_Variables'-------
+    let continueRoutine = true; // until we're told otherwise
+    // get current time
+    t = Save_VariablesClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    for (const thisComponent of Save_VariablesComponents)
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+        break;
+      }
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function Save_VariablesRoutineEnd(trials) {
+  return function () {
+    //------Ending Routine 'Save_Variables'-------
+    for (const thisComponent of Save_VariablesComponents) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    }
+    // the Routine "Save_Variables" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
     return Scheduler.Event.NEXT;
@@ -3827,8 +3949,6 @@ function TR_Enter_Trials_HandRoutineEnd(trials) {
             }
         }
     }
-    thisExp.addData("TR_too_early", tr_press_tooearly);
-    thisExp.addData("TR_too_late", tr_press_toolate);
     if ((trial_count < num_trials_hand)) {
         trial_count = (trial_count + 1);
     }
@@ -4326,7 +4446,6 @@ function Instr_CR_Old_Ctx1RoutineEnd(trials) {
 var stim_item;
 var image_item;
 var ctx_start_time;
-var ctx_num;
 var Load_TrialsComponents;
 function Load_TrialsRoutineBegin(trials) {
   return function () {
@@ -4348,27 +4467,6 @@ function Load_TrialsRoutineBegin(trials) {
         prep_time = (time_limit - stim_start_time);
         ctx_start_time = 0;
     }
-    thisExp.addData("Symbol", stim_item);
-    thisExp.addData("Stim_Type", stim_type);
-    thisExp.addData("Finger", finger_item);
-    thisExp.addData("Shape", image_item);
-    if ((ctx_item === ctx_color[0])) {
-        ctx_num = 1;
-    } else {
-        if ((ctx_item === ctx_color[(0 + num_symb)])) {
-            ctx_num = 2;
-        }
-    }
-    thisExp.addData("ctx", ctx_num);
-    thisExp.addData("Block_Type", block_type);
-    thisExp.addData("Remap", remap);
-    thisExp.addData("Repeat_Count", repeat_count);
-    thisExp.addData("Trial_Count", trial_count);
-    thisExp.addData("Grp_B", grp_b);
-    thisExp.addData("Brp_R", grp_r);
-    thisExp.addData("Block_Num", block_count);
-    thisExp.addData("Set_Prep_Time", prep_time);
-    thisExp.addData("Day", day);
     
     // keep track of which components have finished
     Load_TrialsComponents = [];
@@ -5318,9 +5416,6 @@ function TR_Enter_TrialsRoutineEnd(trials) {
             }
         }
     }
-    thisExp.addData("TR_too_early", tr_press_tooearly);
-    thisExp.addData("TR_too_late", tr_press_toolate);
-    console.log(trial_count);
     if ((trial_count < num_trials)) {
         trial_count = (trial_count + 1);
     }
@@ -5386,6 +5481,8 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  
   
   
   
