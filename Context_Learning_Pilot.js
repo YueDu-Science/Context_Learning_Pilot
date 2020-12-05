@@ -2152,6 +2152,7 @@ var Init_StimComponents;
 var rnd;
 var candidate_map;
 var myList;
+var result;
 function Init_StimRoutineBegin(trials) {
   return function () {
     //------Prepare to start Routine 'Init_Stim'-------
