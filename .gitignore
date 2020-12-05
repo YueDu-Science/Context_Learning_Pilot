@@ -1,5 +1,5 @@
 *.txt
 *.psyexp
 *.py
-*.js
+Context_Learning_Pilot-legacy-browsers.js
 !Context_Learning_Pilot.js
