@@ -369,7 +369,7 @@ function experimentInit() {
     win: psychoJS.window,
     name: 'Instr_Exp_Text',
     alignHoriz: 'center',
-    text: 'Thank you for participating in our study! \nThis study has multiple sessions and it will take 1 hour today. Once you start, you cannot turn off your web browser until you complete the study.\n\nIf you are ready, press (space) to continue.',
+    text: 'Thank you for participating in our study! \n\nThis study has multiple sessions and it will take 1 hour today. Once you start, you cannot turn off your web browser until you complete the study.\n\nIf you are ready, press (space) to continue.',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0,
@@ -2224,7 +2224,7 @@ function Init_StimRoutineBegin(trials) {
     }
     psychoJS.experiment.addData("stim_key_map_ctx1", stim_key_map_ctx1);
     psychoJS.experiment.addData("stim_key_map_ctx2", stim_key_map_ctx2);
-    finger_ctx12 = (finger_ctx1 + finger_ctx2);
+    finger_ctx12 = finger_ctx1.concat(finger_ctx2);
     
     // keep track of which components have finished
     Init_StimComponents = [];
@@ -2289,7 +2289,7 @@ function Init_StimRoutineEnd(trials) {
     }
     let instr_rt_text_hand = `The upcoming three blocks are used to be familiar with the task.
 
-    With your Right hand, place your Index, Middle, Ring, and Pinky fingers on 'H', 'U', 'I', 'L' respectively. Your fingers will rest on these keys for the entirety of the experiment.
+    With your Right hand, place your Index, Middle, Ring, and Pinky fingers on (H, U, I, L) respectively. Your fingers will rest on these keys for the entirety of the experiment.
     
     You will see a hand appear on the screen. One of the fingers on the screen will light up and your job is to press the corresponding finger as quickly and as accurately as possible.
     
