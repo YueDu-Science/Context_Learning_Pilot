@@ -179,8 +179,8 @@ var rt_block;
 var tr_old;
 var timing_tol_early;
 var timing_tol_late;
-var TR_feedback_text;
-var TR_penalty_text;
+var tr_feedback_text;
+var tr_penalty_text;
 var StimList;
 var hand_shape;
 var x;
@@ -271,7 +271,7 @@ function experimentInit() {
   Init_StimClock = new util.Clock();
   block_type = [];
   participant = Number.parseInt(expInfo["participant"]);
-  day = Number.parseInt(expInfo["session"]);
+  session = Number.parseInt(expInfo["session"]);
   circle_frame_color = [1, 1, 1];
   circle_frame_opacity = 1;
   circle_color = [1, 1, 1];
@@ -305,7 +305,7 @@ function experimentInit() {
   rt = 0;
   rt_block = 0;
   tr_old = 0;
-  if ((day === 1)) {
+  if ((session === 1)) {
       instr_exp = 1;
       hand_rt = 1;
       hand_tr = 1;
@@ -314,16 +314,16 @@ function experimentInit() {
       rt_block = 1;
       tr_old = 1;
   } else {
-      if (((6 > day) && (day > 1))) {
+      if (((6 > session) && (session > 1))) {
           rt = 1;
           rt_block = 10;
       } else {
-          if ((day === 6)) {
+          if ((session === 6)) {
               rt = 1;
               rt_block = 2;
               tr_old = 1;
           } else {
-              if ((day === 7)) {
+              if ((session === 7)) {
                   rt = 1;
                   rt_block = 2;
               }
@@ -370,7 +370,7 @@ function experimentInit() {
     win: psychoJS.window,
     name: 'Instr_Exp_Text',
     alignHoriz: 'center',
-    text: 'Thank you for willing to participate in our study where you need to:\n\nUse four fingers (index, middle, ring, little).\n\nPress four keys (h, u, i, l).\n\nThe entire study will take about 1 hour, there will be short recurring rest intervals.\n\nOnce you start, you cannot turn off the web browser until the completion.\n\n\nOnce you are ready to proceed, press the space key.\n\n\n\n\n\n',
+    text: 'Thank you for participating in our study! \nThis study has multiple sessions and it will take 1 hour today. Once you start, you cannot turn off your web browser until you complete the study.\n\nIf you are ready, press (space) to continue.',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0,
@@ -2288,88 +2288,68 @@ function Init_StimRoutineEnd(trials) {
         thisComponent.setAutoDraw(false);
       }
     }
-    instr_rt_text_hand = `We will first perform three practice blocks. They give you the opportunity to be familiar with our tasks.
+    instr_rt_text_hand = `The upcoming three blocks are used to be familiar with the task.
+
+    With your Right hand, place your Index, Middle, Ring, and Pinky fingers on H, U, I, L respectively.
+    Your fingers will rest on these keys for the entirety of the experiment.
     
-    In this upcoming block:
+    You will see a hand appear on the screen. One of the fingers on the screen will light up and your job is to press the corresponding finger as quickly and as accurately as possible.
     
-    rest your index, middle, ring, and little fingers on four keys. They are h, u, i, l.
-    
-    You will see a hand shape on the screen. One finger (index, middle, ring, and little) will light up at a time.
-    
-    Once you see it, press the corresponding finger as quickly and accurately as you can.
-    
-    Pretty easy? press one of you finger to start the block.`
+    Press one of these keys to continue.`
     ;
-    instr_tr_text_hand = `You did a great job.
+    instr_tr_text_hand = `Great Job!
     
-    In the following block, there is only one difference:
+    Now, you need to press the corresponding finger when the larger white ring intersects the smaller white ring. 
+    Sometimes, the finger will light up at the very last second. You will not have enough time to know which finger to press.
+    In this case, MAKE A GUESS. Always press one of your fingers when thegray ring intersects the white ring.
     
-    Instead of pressing a key as quickly as you can, now, you need to press a key when a moving ring overlaps the white circle.
-    
-    In some cases where the finger lights up right before the moving ring touches the circle, you do not have anytime to think about which key to press, make a guess.
-    
-    It is ok to make a guess.
-    
-    There will be at least two blocks, more blocks may be needed if your timing accuracy < 70%.
-    \ Press one of you finger to start the block.`
+    Let’s practice! Press one of the keys to continue.`
     ;
-    instr_cr_old_text_ctx1 = `Congratulations! Now, we are going to do the real task.
+    instr_cr_old_text_ctx1 = `Good Job! You are now ready for the tasks!
     
-    There will be four symbols showing on the screen, one at a time. Each of them maps onto one key from (h,u,i,l).
+    You will see four symbols on the screen. Each symbol corresponds to one of the keys (H, U, I, or L). Your job is to figure out which symbol corresponds with which key. 
+    Accuracy is the priority, so go as slowly as you need to. The more mistakes you make, the longer this block will take.
     
-    Your job is to figure out the map.
-    
-    Think before you press the key. The accuracy is the priority, so go as slow as you need. The more mistaks you make, the longer this block will be.`
+    Ready? Press one of the keys to continue.`
     ;
-    instr_cr_old_text_ctx2 = `Congratulations! Now, we are going to learn a new map.
+    instr_cr_old_text_ctx2 = `Congratulations! 
     
-    You will see the same four symbols but with a different circle frame color.
+    Now, the small circle will change to another color. You need to learn a new map bewtween those four symbols and four keys.
+    Again, accuracy is the priority, so go as slowly as you need to. The more mistaks you make, the longer this block will take.
     
-    Think before you press the key. The accuracy is the priority, so go as slow as you need. The more mistaks you make, the longer this block will be.`
+    When you ara ready, press one of the keys to continue.`
     ;
-    if ((day === 1)) {
-        instr_rt_text = `Now, we are going to practice the symbol-key map you just learned.
+    if ((session === 1)) {
+        instr_rt_text = `Now using the maps that you just learned, your job is to press the corresponding key as quickly and as accurately as possible.
+
+    There will be ${rt_block} blocks with short breaks in between.
     
-    There are ${rt_block} blocks in total and between each two blocks, short rests are avalaible.
-    
-    In each block, your job is to press the corresponding key as quickly and accurately as you can.
-    
-    Whenever you are ready, press any key to start.`
+    Whenever you are ready, press one of the keys to start.`
     ;
     } else {
-        if (((1 < day) && (day < 7))) {
-            instr_rt_text = `Today, we continue to practice the symbol-key maps.
+        if (((1 < session) && (session < 7))) {
+            instr_rt_text = `Today, we continue to practice the symbol-key maps you learned.
     
-    There are ${rt_block} blocks in total and between each two blocks, short rests are avalaible.
+    There are ${rt_block} blocks today. Remember, your job is to press the corresponding key as quickly and accurately as you can.
     
-    This is all you need to complete today.
-    
-    Remember, your job is to press the corresponding key as quickly and accurately as you can.
-    
-    Whenever you are ready, press any key to start.`
+    Ready? Press one of the keys to start.`
     ;
         } else {
-            if ((day === 7)) {
+            if ((session === 7)) {
                 instr_rt_text = `Today, we first continue to practice the symbol-key maps for ${rt_block} blocks.
     
     Remember, your job is to press the corresponding key as quickly and accurately as you can.
     
-    Whenever you are ready, press any key to start.`
+    Whenever you are ready, press one of the keys to start.`
     ;
             }
         }
     }
-    instr_tr_old_text = `In the final set of blocks, still use the symbol-key map you practiced previously.
-    
-    Press the corresponding key when the moving ring overlaps the while circle.
-    
-    Remember, the symbol may show up very late. In these cases, you do not have time to think about which key to press, make a guess.
-    
-    This task is designed to be very hard, so it is ok to make a guess.
-    
-    There will be five blocks in total.
-    
-    Press one of you finger to start the block.`
+    instr_tr_old_text = `Good job so far.
+
+    In the following 6 blocks, press the corresponding key when the larger gray ring intersects the smaller white ring. Remember, the symbol may show up very late. In this case, MAKE A GUESS. This task is designed to be difficult, so it is okay to make a guess.
+
+    Press one of the keys to start.`
     ;
     
     // the Routine "Init_Stim" was not non-slip safe, so reset the non-slip timer
@@ -3090,7 +3070,7 @@ function Save_VariablesRoutineBegin(trials) {
     psychoJS.experiment.addData("Brp_R", grp_r);
     psychoJS.experiment.addData("Block_Num", block_count);
     psychoJS.experiment.addData("Set_Prep_Time", prep_time);
-    psychoJS.experiment.addData("Day", day);
+    psychoJS.experiment.addData("Session", session);
     
     // keep track of which components have finished
     Save_VariablesComponents = [];
@@ -3651,7 +3631,7 @@ function Instr_Block_NumRoutineBegin(trials) {
     Instr_Block_NumClock.reset(); // clock
     frameN = -1;
     // update component parameters for each repeat
-    Instr_Block_Num_Text.setText((('Block ' + block_count) + '\nPress any key to start'));
+    Instr_Block_Num_Text.setText((('Block ' + block_count) + '\nPress one of the keys to start!'));
     Instr_Block_Num_Press.keys = undefined;
     Instr_Block_Num_Press.rt = undefined;
     _Instr_Block_Num_Press_allKeys = [];
@@ -3976,11 +3956,11 @@ function TR_Enter_Trials_HandRoutineEnd(trials) {
     tr_feedback_text_color = [1, 1, 1];
     if ((tr_penalty === 1)) {
         if ((tr_press_toolate === 1)) {
-            tr_penalty_text = `no response or you responded way too late. \n 2 second penalty. \n After 2 second, press any key to continue.`
+            tr_penalty_text = `Response was too late. \n2 second penalty. \nAfter 2 second, press any key to continue.`
     ;
         } else {
             if ((tr_press_tooearly === 1)) {
-                tr_penalty_text = `You responded way too early. \n 2 second penalty. \n After 2 second, press any key to continue.`
+                tr_penalty_text = `Response was too early. \n2 second penalty. \n fter 2 second, press any key to continue.`
     ;
             }
         }
@@ -5431,11 +5411,11 @@ function TR_Enter_TrialsRoutineEnd(trials) {
     tr_feedback_text_color = [1, 1, 1];
     if ((tr_penalty === 1)) {
         if ((tr_press_toolate === 1)) {
-            tr_penalty_text = `no response or you responded way too late. \n 2 second penalty. \n After 2 second, press any key to continue.`
+            tr_penalty_text = `Response was too late. \n2 second penalty. \nAfter 2 second, press any key to continue.`
     ;
         } else {
             if ((tr_press_tooearly === 1)) {
-                tr_penalty_text = `You responded way too early. \n 2 second penalty. \n After 2 second, press any key to continue.`
+                tr_penalty_text = `Response was too early. \n2 second penalty. \nAfter 2 second, press any key to continue.`
     ;
             }
         }
