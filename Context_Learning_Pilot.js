@@ -311,7 +311,7 @@ function experimentInit() {
       hand_tr = 1;
       cr_old = 1;
       rt = 1;
-      rt_block = 1;
+      rt_block = 6;
       tr_old = 1;
   } else {
       if (((6 > session) && (session > 1))) {
@@ -326,6 +326,7 @@ function experimentInit() {
               if ((session === 7)) {
                   rt = 1;
                   rt_block = 2;
+                  tr_old = 1;
               }
           }
       }
@@ -2286,20 +2287,17 @@ function Init_StimRoutineEnd(trials) {
         thisComponent.setAutoDraw(false);
       }
     }
-    instr_rt_text_hand = `The upcoming three blocks are used to be familiar with the task.
+    let instr_rt_text_hand = `The upcoming three blocks are used to be familiar with the task.
 
-    With your Right hand, place your Index, Middle, Ring, and Pinky fingers on H, U, I, L respectively.
-    Your fingers will rest on these keys for the entirety of the experiment.
+    With your Right hand, place your Index, Middle, Ring, and Pinky fingers on 'H', 'U', 'I', 'L' respectively. Your fingers will rest on these keys for the entirety of the experiment.
     
     You will see a hand appear on the screen. One of the fingers on the screen will light up and your job is to press the corresponding finger as quickly and as accurately as possible.
     
-    Press one of these keys to continue.`
+    Ready? Press one of these keys to continue.`
     ;
     instr_tr_text_hand = `Great Job!
     
-    Now, you need to press the corresponding finger when the larger white ring intersects the smaller white ring. 
-    Sometimes, the finger will light up at the very last second. You will not have enough time to know which finger to press.
-    In this case, MAKE A GUESS. Always press one of your fingers when thegray ring intersects the white ring.
+    Now, you need to press the corresponding finger when the larger white ring intersects the smaller white ring. Sometimes, the finger will light up at the very last second. You will not have enough time to know which finger to press. In this case, MAKE A GUESS. Always press one of your fingers when thegray ring intersects the white ring.
     
     Let’s practice! Press one of the keys to continue.`
     ;
@@ -2315,7 +2313,7 @@ function Init_StimRoutineEnd(trials) {
     Now, the small circle will change to another color. You need to learn a new map bewtween those four symbols and four keys.
     Again, accuracy is the priority, so go as slowly as you need to. The more mistaks you make, the longer this block will take.
     
-    When you ara ready, press one of the keys to continue.`
+    When you are ready, press one of the keys to continue.`
     ;
     if ((session === 1)) {
         instr_rt_text = `Now using the maps that you just learned, your job is to press the corresponding key as quickly and as accurately as possible.
@@ -2345,7 +2343,7 @@ function Init_StimRoutineEnd(trials) {
     }
     instr_tr_old_text = `Good job so far.
 
-    In the following 6 blocks, press the corresponding key when the larger gray ring intersects the smaller white ring. Remember, the symbol may show up very late. In this case, MAKE A GUESS. This task is designed to be difficult, so it is okay to make a guess.
+    In the following 6 blocks, press the corresponding key when the larger white ring intersects the smaller red/green ring. Remember, the symbol may show up very late. In this case, MAKE A GUESS. This task is designed to be difficult, so it is okay to make a guess.
 
     Press one of the keys to start.`
     ;
@@ -3958,7 +3956,7 @@ function TR_Enter_Trials_HandRoutineEnd(trials) {
     ;
         } else {
             if ((tr_press_tooearly === 1)) {
-                tr_penalty_text = `Response was too early. \n2 second penalty. \n fter 2 second, press any key to continue.`
+                tr_penalty_text = `Response was too early. \n2 second penalty. \nAfter 2 second, press any key to continue.`
     ;
             }
         }
