@@ -369,7 +369,7 @@ function experimentInit() {
     win: psychoJS.window,
     name: 'Instr_Exp_Text',
     alignHoriz: 'center',
-    text: 'Thank you for participating in our study! \n\nThis study has multiple sessions and it will take 1 hour today. Once you start, you cannot turn off your web browser until you complete the study.\n\nIf you are ready, press (space) to continue.',
+    text: 'Thank you for participating in our study! \n\nThis study has multiple sessions and it will take 40 minutes today. Once you start, you cannot turn off your web browser until you complete the study.\n\nIf you are ready, press (space) to continue.',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0,
