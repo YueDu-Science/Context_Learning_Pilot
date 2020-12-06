@@ -54,7 +54,7 @@ let expInfo = {'participant': '', 'session': ''};
 
 // schedule the experiment:
 psychoJS.schedule(psychoJS.gui.DlgFromDict({
-  text: "Welcome. Make sure you type in your Participation ID and Session. Press 'Ok' when you are ready to begin.",
+  text: "Welcome. Make sure you type in your 'participation ID' and 'session number', then press 'Ok' to continue.",
   dictionary: expInfo,
   title: expName
 }));
@@ -332,8 +332,6 @@ function experimentInit() {
   }
   timing_tol_early = 0.1;
   timing_tol_late = 0.075;
-  TR_feedback_text = [];
-  TR_penalty_text = [];
   StimList = [];
   hand_shape = [];
   x = [];
