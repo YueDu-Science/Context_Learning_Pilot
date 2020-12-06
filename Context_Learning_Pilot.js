@@ -2287,7 +2287,7 @@ function Init_StimRoutineEnd(trials) {
         thisComponent.setAutoDraw(false);
       }
     }
-    let instr_rt_text_hand = `The upcoming three blocks are used to be familiar with the task.
+    instr_rt_text_hand = `The upcoming three blocks are used to be familiar with the task.
 
     With your Right hand, place your Index, Middle, Ring, and Pinky fingers on (H, U, I, L) respectively. Your fingers will rest on these keys for the entirety of the experiment.
     
