@@ -293,7 +293,7 @@ function experimentInit() {
   n_map = stim_key_perm.length;
   rt_block_hand = 1;
   tr_block_hand = 4;
-  num_trials_hand = 4;
+  num_trials_hand = 48;
   num_trials_cr = 2000;
   num_criterion = 5;
   num_trials = 96;
