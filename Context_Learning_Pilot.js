@@ -295,7 +295,7 @@ function experimentInit() {
   tr_block_hand = 4;
   num_trials_hand = 4;
   num_trials_cr = 2000;
-  num_criterion = 2;
+  num_criterion = 5;
   num_trials = 96;
   tr_block = 6;
   instr_exp = 0;
