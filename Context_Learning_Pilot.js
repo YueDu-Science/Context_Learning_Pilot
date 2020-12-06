@@ -275,7 +275,7 @@ function experimentInit() {
   circle_frame_color = [1, 1, 1];
   circle_frame_opacity = 1;
   circle_color = [1, 1, 1];
-  circle_pol = 1600;
+  circle_pol = 60;
   circle_wd = 12;
   feedback_size = [0.18, 0.18];
   post_trial_dur = 0.2;
@@ -296,7 +296,7 @@ function experimentInit() {
   num_trials_hand = 4;
   num_trials_cr = 2000;
   num_criterion = 2;
-  num_trials = 4;
+  num_trials = 96;
   tr_block = 6;
   instr_exp = 0;
   hand_rt = 0;
