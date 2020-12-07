@@ -2179,6 +2179,8 @@ function Init_StimRoutineBegin(trials) {
     feedback_p = StimList[0]["Feedback"];
     feedback_n = StimList[1]["Feedback"];
     hand_shape = StimList[0]["Hand"];
+    
+    console.log(x_pos)
     for (var i = 0, _pj_a = num_pos; (i < _pj_a); i += 1) {
         x.append(StimList[i]["x_pos"]);
         y.append(StimList[i]["y_pos"]);
