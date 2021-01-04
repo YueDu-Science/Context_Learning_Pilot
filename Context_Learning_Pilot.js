@@ -2330,7 +2330,7 @@ function Init_StimRoutineEnd(trials) {
     Whenever you are ready, press one of the keys to start.`
     ;
     } else {
-        if (((1 < session) && (session < 6))) {
+        if (((1 < session) && (session < 6)) || ((8 < session) && (session < 21))) {
             instr_rt_text = `Today, we continue to practice the symbol-key maps you learned.
     
     There are ${rt_block} blocks today. Remember, your job is to press the corresponding key as quickly and accurately as you can.
@@ -2338,7 +2338,7 @@ function Init_StimRoutineEnd(trials) {
     Ready? Press one of the keys to start.`
     ;
         } else {
-            if ((session > 5)) {
+            if ((session == 6) || (session == 7) || (session == 8) || (session == 21) || (session == 22)) {
                 instr_rt_text = `Today, we first continue to practice the symbol-key maps for ${rt_block} blocks.
     
     Remember, your job is to press the corresponding key as quickly and accurately as you can.
