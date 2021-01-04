@@ -332,8 +332,10 @@ function experimentInit() {
               rt_block = 2;
               tr_old = 1;
             }
+          }
+        }
       }
-  }
+    }
   timing_tol_early = 0.1;
   timing_tol_late = 0.075;
   StimList = [];
